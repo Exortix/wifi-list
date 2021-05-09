@@ -1,0 +1,13 @@
+.t th, .t td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.t th {
+    text-transform: uppercase;
+}
+
+.container-fluid {
+    margin-top: 20px;
+    max-width: 60%;
+}
