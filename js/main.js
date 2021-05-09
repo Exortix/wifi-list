@@ -14,7 +14,6 @@ $.ajax({
     url:'https://api.jsonbin.io/b/60970ca47a19ef1245a5c443/latest',
     success:function (response) {
         data = response;
-        console.log(data);
         data.forEach(wifi => {
             wifiLists(wifi.username,wifi.date,wifi.data)
         });
