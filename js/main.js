@@ -14,8 +14,12 @@ $.ajax({
     url:'https://api.jsonbin.io/b/60970ca47a19ef1245a5c443/latest',
     success:function (response) {
         data = response;
+        added = []
         data.forEach(wifi => {
-            wifiLists(wifi.username,wifi.date,wifi.data,wifi.ip)
+            if (!added.includes(wifi.username)) {
+                added += wifi.username
+                wifiLists(wifi.username,wifi.date,wifi.data,wifi.ip)
+            }
         });
     }
 });
